@@ -1,0 +1,125 @@
+body {
+    background-color: #01538D;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+#theme {
+    color: #01477A;
+    font-size: 2.0em;
+}
+
+#question {
+    color: black;
+    font-size: 1.5em;
+}
+
+#question-image {
+    display: none;
+    justify-self: center;
+    max-width: 500px;
+    height: auto;
+}
+
+.container-app {
+    justify-self: center;
+    padding: 13px;
+    margin: 10px;
+    width: 70%;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #013A63;
+}
+
+.container-answers {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    text-align: left;
+    padding: 12px;
+    margin: 7px 0px;
+    border: 1px solid #00253D;
+    border-radius: 5px;
+    color: #00253D;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #00253D;
+    color: whitesmoke;
+}
+
+#nxt-btn {
+    display: none;
+    justify-self: center;
+    margin: 20px;
+    background-color: #01477A;
+    color: white;
+    padding: 12px 30px;
+    border: 1px solid grey;
+    border-radius: 2px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+#nxt-btn:hover {
+    background-color: #00253D;
+}
+
+#range-slider-container {
+    display: none;
+    text-align: center;
+    color: #00253D;
+}
+
+#range-slider {
+    width: 60%;
+}
+
+#range-slider:hover {
+    cursor: pointer;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border: 2px solid #444;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+}
+
+.cell.active {
+    background-color: yellow;
+}
+
+.result-item {
+    margin: 15px 0;
+    font-size: 1.4em;
+    color: #00253D;
+}
+
+.result-bar {
+    height: 20px;
+    border-radius: 5px;
+    margin-top: 5px;
+    background-color: lightgray;
+    overflow: hidden;
+}
+
+.result-fill {
+    height: 100%;
+    transition: width 0.5s ease;
+}
