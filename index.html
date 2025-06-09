@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stärketest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex">
+  <div class="container-app">
+    <h1 id="theme">Themenfeld</h1>
+    <hr>
+    <div class="container-quiz">
+      <h2 id="question">Frage</h2>
+      <img id="question-image" src="Bild" alt="Bild">
+      <div class="container-answers flex">
+        <button class="btn" id="ans1">Antwort 1</button>
+        <button class="btn" id="ans2">Antwort 2</button>
+        <button class="btn" id="ans3">Antwort 3</button>
+        <button class="btn" id="ans4">Antwort 4</button>
+      </div>
+      <div id="range-slider-container"></div>
+      <button onclick="nxtQuest()" id="nxt-btn">Weiter</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
