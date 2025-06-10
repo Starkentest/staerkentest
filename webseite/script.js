@@ -83,7 +83,7 @@ const quiz = [
   },
   {
     type: "memory",
-    strength: "Gedächtnisspiel",
+    strength: "Gedächtnisvermögen",
     question: "Merke dir die Reihenfolge der aufleuchtenden Felder und klicke sie anschließend in der richtigen Reihenfolge an."
   },
   {
@@ -588,6 +588,9 @@ for (let i = 0; i < 9; i++) {
 }
 
 
+
+let memoryRoundsPlayed = 0;
+
 function startMemoryGame() {
   memoryUserInput = [];
   memoryClickable = false;
@@ -598,32 +601,38 @@ function startMemoryGame() {
   }
 
   let i = 0;
-  const interval = setInterval(() => {
-    // Vorheriges Licht aus
-    if (i > 0) {
-      memoryGrid.children[memorySequence[i - 1]].classList.remove("active");
-    }
 
-    // Wenn die Sequenz beendet ist
-    if (i >= memorySequence.length) {
-      clearInterval(interval);
-      memoryClickable = true;
-      return;
-    }
+  const playSequence = () => {
+    const interval = setInterval(() => {
+      if (i > 0) {
+        memoryGrid.children[memorySequence[i - 1]].classList.remove("active");
+      }
 
-    // Neues Licht an
-    setTimeout(() => {
-      memoryGrid.children[memorySequence[i]].classList.add("active");
+      if (i >= memorySequence.length) {
+        clearInterval(interval);
+        memoryClickable = true;
+        return;
+      }
 
-      // Nach 0.5 Sekunden wieder aus
       setTimeout(() => {
-        memoryGrid.children[memorySequence[i]].classList.remove("active");
-        i++;
-      }, 500);
-    }, 500); // 0.5 Sekunden Pause vor dem nächsten Licht
-  }, 1000); // Insgesamt 1 Sekunde pro Schritt (0.5 an, 0.5 aus)
-}
+        memoryGrid.children[memorySequence[i]].classList.add("active");
 
+        setTimeout(() => {
+          memoryGrid.children[memorySequence[i]].classList.remove("active");
+          i++;
+        }, 500);
+      }, 500);
+    }, 1000);
+  };
+
+  // Wenn es der erste Durchlauf ist: 2 Sekunden Pause zum Lesen
+  if (memoryRoundsPlayed === 0) {
+    setTimeout(playSequence, 2000);
+  } else {
+    playSequence();
+  }
+  memoryRoundsPlayed++;
+}
 
 
 function checkMemoryAnswer() {
@@ -640,7 +649,7 @@ function checkMemoryAnswer() {
     }, 1000);
   } else {
     const avg = Math.round(memoryResults.reduce((a, b) => a + b, 0) / memoryResults.length);
-    const strength = "Gedächtnisspiel";
+    const strength = "Gedächtnisvermögen";
 
     if (!results[strength]) {
       results[strength] = 0;
