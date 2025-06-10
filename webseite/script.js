@@ -627,7 +627,7 @@ function startMemoryGame() {
 
   // Wenn es der erste Durchlauf ist: 2 Sekunden Pause zum Lesen
   if (memoryRoundsPlayed === 0) {
-    setTimeout(playSequence, 2000);
+    setTimeout(playSequence, 4000);
   } else {
     playSequence();
   }
