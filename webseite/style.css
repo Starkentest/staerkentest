@@ -48,10 +48,7 @@ body {
     cursor: pointer;
 }
 
-.btn:hover {
-    background-color: #00253D;
-    color: whitesmoke;
-}
+
 
 #nxt-btn {
     display: none;
