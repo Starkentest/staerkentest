@@ -1,9 +1,8 @@
-// Fragen und Antworten, inkl. Stärke und Wert für Auswertung
-// choice: Frage+antwort; range: Frage+slider; memory: Gedächnisspiel
+
 const quiz = [
   {
     type: "choice",
-    strength: "Kognitive und Analytische Stärken", // Kognitive und Analytische Stärken
+    strength: "Kognitive und Analytische Stärken",
     question: "27 + 58 = ?",
     answers: [
       { text: "82", value: 1 },
@@ -88,7 +87,7 @@ const quiz = [
   },
   {
     type: "choice", 
-    strength: "Praktische, technische und handwerkliche Stärken", // Praktische, technische und handwerkliche Stärken
+    strength: "Praktische, technische und handwerkliche Stärken", 
     question: "Welches Volumen hat diese Mülltonne?",
     image: "../images/mülltonne.jpg",
     answers: [
@@ -225,7 +224,7 @@ const quiz = [
   },
   {
     type: "range",
-    strength: "Soziale und Kommunikative Stärken", // Soziale und Kommunikative Stärken
+    strength: "Soziale und Kommunikative Stärken", 
     question: "Wie gut kannst du Streitsituationen klären? (0: gar nicht, 100: sehr gut)",
     answers: [
       { min: 0, max: 100, start: 50 }
@@ -289,7 +288,7 @@ const quiz = [
   },
   {
     type: "range",
-    strength: "Künstlerische und Kreative Stärken", //Künstlerische und Kreative Stärken
+    strength: "Künstlerische und Kreative Stärken", 
     question: "Bist Du in Deiner Freizeit gerne und oft künstlerisch aktiv? (0: gar nicht, 100: sehr gerne/oft)",
     answers: [
       { min: 0, max: 100, start: 50 }
@@ -313,7 +312,7 @@ const quiz = [
   },
   {
     type: "choice",
-    strength: "Physische und körperliche Stärken", // Physische und körperliche Stärken
+    strength: "Physische und körperliche Stärken", 
     question: "Wie oft treibst du in der Woche Sport",
     answers: [
       { text: "0 mal", value: 1 },
@@ -403,7 +402,7 @@ let nmbrQuest = 0;
 let results = {};
 let counts = {};
 
-// Ausführungs Elemente
+
 const themeEl = document.getElementById('theme');
 const questionEl = document.getElementById('question');
 const imgElement = document.getElementById('question-image');
@@ -506,7 +505,7 @@ function submitAnswer(index = null) {
     value = parseInt(slider.value);
   }
 
-  // Werte speichern nach Stärke
+  
   const strength = objQuest.strength;
   if (!results[strength]) {
     results[strength] = 0;
@@ -557,7 +556,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadQuestion();
 });
 
-//Memory Game Variablen
+
 let memoryGrid = document.createElement("div");
 memoryGrid.id = "memory-container";
 memoryGrid.style.display = "none";
@@ -625,7 +624,7 @@ function startMemoryGame() {
     }, 1000);
   };
 
-  // Wenn es der erste Durchlauf ist: 2 Sekunden Pause zum Lesen
+  
   if (memoryRoundsPlayed === 0) {
     setTimeout(playSequence, 4000);
   } else {
